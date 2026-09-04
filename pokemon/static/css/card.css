@@ -1,0 +1,60 @@
+/* ====================================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < CSS  := PÁGINA STYLE CARD.CSS >
+     ================================ */
+
+
+.card-pokemon {
+    background-color: var(--cor-vinho);
+    border: 1px solid var(--cor-vermelho-escuro);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.card-pokemon:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--cor-destaque);
+    box-shadow: 0 10px 25px rgba(221, 213, 213, 0.5);
+}
+
+.card-img-wrapper {
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 16px;
+}
+
+.card-pokemon img {
+    height: 140px;
+    width: auto;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
+    transition: transform 0.25s;
+}
+
+.card-pokemon:hover img {
+    transform: scale(1.1);
+}
+
+.pokemon-number {
+    display: block;
+    font-size: 12px;
+    color: var(--cor-destaque);
+    opacity: 0.7;
+    margin-bottom: 4px;
+}
+
+.card-title {
+    color: var(--cor-texto-claro);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.badge-tipo {
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin: 2px 3px;
+    color: #fff;
+    font-weight: bold;
+}

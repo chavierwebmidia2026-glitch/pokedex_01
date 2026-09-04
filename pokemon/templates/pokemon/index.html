@@ -1,0 +1,35 @@
+<!-- ============================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < HTML := PÁGINA INDEX.HTML >
+     ============================ -->
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container py-5">
+
+    <h1 class="text-center text-warning mb-2">Pokédex</h1>
+    <p class="text-center text-light mb-4">Explore o mundo Pokémon em tempo real</p>
+
+    <hr class="my-5 border-top w-50 mx-auto border-light hr-fina">
+
+    <div class="row">
+        {% for pokemon in pokemons %}
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card bg-dark border-danger text-center h-100 card-pokemon">
+                <img src="{{ pokemon.imagem }}" class="card-img-top p-3" alt="{{ pokemon.nome }}">
+                <div class="card-body">
+                    <h6 class="text-warning mb-1">#{{ pokemon.id }}</h6>
+                    <h5 class="card-title text-light text-capitalize">{{ pokemon.nome }}</h5>
+                    <p class="card-text small text-light text-capitalize">
+                        {{ pokemon.tipos|join:", " }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

@@ -1,24 +1,29 @@
-
 ''' ============================
      < CHWM := CHAVIERWEBMÍDIA >
      < VIEWS := PÁGINA VIEWS.PY >
      ============================ '''
-
 import requests
 from django.shortcuts import render
 
 
 def index(request):
+    return render(request, 'pokemon/index.html')
+
+def sobre(request):
+    return render(request, 'pokemon/sobre.html')
+
+
+def pokemons(request):
     url = 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0'
     response = requests.get(url)
     data = response.json()
 
-    pokemons = []
+    lista_pokemons = []
 
     for item in data['results']:
         detalhes = requests.get(item['url']).json()
 
-        pokemons.append({
+        lista_pokemons.append({
             'id': detalhes['id'],
             'nome': detalhes['name'],
             'imagem': detalhes['sprites']['other']['official-artwork']['front_default'],
@@ -26,7 +31,7 @@ def index(request):
         })
 
     context = {
-        'pokemons': pokemons,
+        'pokemons': lista_pokemons,
     }
 
-    return render(request, 'pokemon/index.html', context)
+    return render(request, 'pokemon/pokemons.html', context)

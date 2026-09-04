@@ -1,0 +1,41 @@
+<!-- ============================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < HTML := PÁGINA POKEMONS.HTML >
+     ============================ -->
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container  py-5">
+
+    <h2 class="text-center text-warning mb-2">Pokémon</h2>
+    <p class="text-center text-light mb-5">Confira os primeiros da nossa lista</p>
+
+    <div class="row ">
+        {% for pokemon in pokemons %}
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card card-pokemon h-100 bg-warning text-center">
+                <div class="card-img-wrapper">
+                    <img src="{{ pokemon.imagem }}" class="card-img-top" alt="{{ pokemon.nome }}">
+                </div>
+                <div class="card-body">
+                    <span class="pokemon-number">#{{ pokemon.id }}</span>
+                    <h5 class="card-title text-capitalize">{{ pokemon.nome }}</h5>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        {% for tipo in pokemon.tipos %}
+                        <span class="badge badge-tipo tipo-{{ tipo }}">{{ tipo }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-light">Nenhum Pokémon encontrado.</p>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

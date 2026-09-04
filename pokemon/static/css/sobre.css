@@ -1,0 +1,27 @@
+/* ====================================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < CSS  := PÁGINA STYLE SOBRE.CSS >
+     ================================ */
+
+
+.card-sobre {
+    background-color: var(--cor-vinho);
+    border: 1px solid var(--cor-vermelho-escuro);
+    border-radius: 12px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card-sobre:hover {
+    transform: translateY(-6px);
+    border-color: var(--cor-destaque);
+}
+
+.badge-tech {
+    background-color: var(--cor-vinho);
+    color: var(--cor-texto-claro);
+    border: 1px solid var(--cor-vermelho-escuro);
+    font-size: 13px;
+    padding: 8px 14px;
+    margin: 4px;
+    border-radius: 20px;
+}

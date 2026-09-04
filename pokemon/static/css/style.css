@@ -22,3 +22,69 @@ h1 {
     color: rgb(150, 38, 38);
     font-size: 50px;
 }
+
+.hero-section {
+    min-height: 90vh;
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-images {
+    gap: 24px;
+   
+}
+
+.hero-img {
+    max-width: 300px;
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.5));
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-img-1 {
+    max-width: 250px;
+    animation-delay: 0s;
+}
+
+.hero-img-2 {
+    max-width: 200px;
+    animation-delay: 0.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.hero-title {
+    animation: fadeInUp 0.8s ease both;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+    max-width: 500px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease 0.2s both;
+    opacity: 0.9;
+}
+
+.hero-btn {
+    animation: fadeInUp 0.8s ease 0.4s both;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(193, 18, 31, 0.5);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

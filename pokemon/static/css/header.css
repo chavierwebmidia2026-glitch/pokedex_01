@@ -6,3 +6,18 @@
 .border-danger {
     border-color: var(--cor-vermelho-vivo) !important;
 }
+
+.h4 {
+    font-size: 50px;
+    margin-right: 110px;
+}
+
+
+.logo-img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.navbar-brand:hover .logo-img {
+    transform: scale(1.08) rotate(-3deg);
+    filter: drop-shadow(0 0 8px var(--cor-destaque));
+}

@@ -10,4 +10,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
+    path('pokemons/', views.pokemons, name='pokemons'),
+    path('sobre/', views.sobre, name='sobre'),
 ]

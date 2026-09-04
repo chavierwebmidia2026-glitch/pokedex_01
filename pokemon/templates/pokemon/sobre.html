@@ -1,0 +1,85 @@
+<!-- ============================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < HTML := PÁGINA SOBRE.HTML >
+     ============================ -->
+
+{% extends 'base.html' %}
+  {% load static %}
+
+
+{% block content %}
+
+<!-- Hero da página -->
+<section class="sobre-hero text-center py-5">
+    <div class="container">
+        <i class="fas fa-dragon fa-3x text-warning mb-3"></i>
+        <h1 class="display-4 text-warning font-weight-bold">Sobre a Pokédex</h1>
+        <p class="lead text-light mx-auto" style="max-width: 650px;">
+            Um projeto criado para explorar o universo Pokémon com dados reais, direto da PokeAPI.
+        </p>
+    </div>
+</section>
+
+<div class="container py-5">
+
+    <!-- Cards de destaque -->
+    <div class="row text-center mb-5">
+        <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <div class="card card-sobre h-100 p-4">
+                <i class="fas fa-database fa-2x text-warning mb-3"></i>
+                <h5 class="text-light">Dados em tempo real</h5>
+                <p class="small text-light mb-0">Todas as informações vêm diretamente da PokeAPI, sempre atualizadas.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <div class="card card-sobre h-100 p-4">
+                <i class="fas fa-mobile-alt fa-2x text-warning mb-3"></i>
+                <h5 class="text-light">100% responsivo</h5>
+                <p class="small text-light mb-0">Funciona bem em celular, tablet e desktop, sem perder qualidade.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card card-sobre h-100 p-4">
+                <i class="fas fa-code fa-2x text-warning mb-3"></i>
+                <h5 class="text-light">Django + Python</h5>
+                <p class="small text-light mb-0">Backend robusto, buscando e organizando os dados antes de exibir.</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="border-white w-50 mx-auto mb-5">
+
+    <!-- Sobre o projeto -->
+    <div class="row align-items-center mb-5">
+        <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <h2 class="text-warning">O projeto</h2>
+            <p class="text-light">
+                A Pokédex nasceu como um projeto de portfólio, unindo front-end estilizado
+                em Bootstrap com um back-end em Django responsável por consumir a PokeAPI
+                e organizar os dados de cada Pokémon.
+            </p>
+            <p class="text-light mb-0">
+                A ideia é oferecer uma experiência simples, rápida e visualmente marcante
+                pra qualquer fã explorar o universo Pokémon.
+            </p>
+        </div>
+        <div class="col-12 col-md-6 text-center">
+            <i class="fas fa-flask fa-6x text-danger"></i>
+        </div>
+    </div>
+
+    <!-- Tecnologias -->
+    <div class="text-center">
+        <h2 class="text-warning mb-4">Tecnologias utilizadas</h2>
+        <div class="d-flex justify-content-center flex-wrap">
+            <span class="badge badge-tech text-white "><i class="fab fa-python mr-1 text-warning"></i> Python</span>
+            <span class="badge badge-tech text-white "><i class="fas fa-server mr-1 text-warning"></i> Django</span>
+            <span class="badge badge-tech text-white "><i class="fab fa-bootstrap mr-1 text-warning "></i> Bootstrap</span>
+            <span class="badge badge-tech text-white"><i class="fab fa-js mr-1 text-warning "></i> JavaScript</span>
+            <span class="badge badge-tech text-white"><i class="fas fa-plug mr-1 text-warning"></i> PokeAPI</span>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}   

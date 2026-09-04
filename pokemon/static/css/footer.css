@@ -3,23 +3,69 @@
      < CSS  := PÁGINA STYLE FOOTER.CSS >
      ================================ */
 
-
-
 .footer-premium {
     background-color: var(--cor-preto);
-    border-top: 2px solid var(--cor-vermelho-vivo);
+    border-top: 1px solid var(--cor-vermelho-escuro);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--cor-vermelho-vivo), transparent);
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.25s ease, padding-left 0.25s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    padding-left: 4px;
+    color: var(--cor-destaque) !important;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--cor-vinho);
+    border: 1px solid var(--cor-vermelho-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-texto-claro);
+    transition: background-color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--cor-vermelho-vivo);
+    border-color: var(--cor-destaque);
+    transform: translateY(-3px);
+    color: #fff;
 }
 
 .footer-bottom {
     background-color: var(--cor-vinho);
 }
 
-.footer-premium a {
-    text-decoration: none;
-    opacity: 0.75;
-}
-
-.footer-premium a:hover {
-    opacity: 1;
-    color: var(--cor-vermelho-vivo) !important;
+.footer-bottom small {
+    opacity: 0.7;
 }

@@ -3,21 +3,37 @@
      < HTML := PÁGINA POKEMONS.HTML >
      ============================ -->
 
-
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
-<div class="container  py-5">
+<div class="container py-5">
 
     <h2 class="text-center text-warning mb-2">Pokémon</h2>
-    <p class="text-center text-light mb-5">Confira os primeiros da nossa lista</p>
+    <p class="text-center text-light mb-4">Confira os primeiros da nossa lista</p>
 
-    <div class="row ">
+    <!-- Barra de pesquisa em tempo real -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-12 col-md-6">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text bg-dark border-danger text-warning">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+                <input type="text" id="pesquisa-pokemon" class="form-control" placeholder="Pesquisar Pokémon...">
+            </div>
+        </div>
+    </div>
+
+    <p id="msg-nao-encontrado" class="text-center text-light" style="display: none;">
+        <i class="fas fa-exclamation-circle text-danger mr-2"></i>Pokémon não encontrado.
+    </p>
+
+    <div class="row" id="pokemon-container">
         {% for pokemon in pokemons %}
-        <div class="col-6 col-md-4 col-lg-3 mb-4">
-            <div class="card card-pokemon h-100 bg-warning text-center">
+        <div class="col-6 col-md-4 col-lg-3 mb-4 pokemon-item" data-nome="{{ pokemon.nome }}">
+            <div class="card card-pokemon h-100 text-center">
                 <div class="card-img-wrapper">
                     <img src="{{ pokemon.imagem }}" class="card-img-top" alt="{{ pokemon.nome }}">
                 </div>
@@ -32,8 +48,6 @@
                 </div>
             </div>
         </div>
-        {% empty %}
-        <p class="text-center text-light">Nenhum Pokémon encontrado.</p>
         {% endfor %}
     </div>
 

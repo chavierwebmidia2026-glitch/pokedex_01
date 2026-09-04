@@ -3,7 +3,12 @@
      < JS := PÁGINA SCRIPTS.JS >
      ============================ */
 
-const inputPesquisa = document.getElementById('pesquisa-pokemon');
+/* ============================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < JS := PÁGINA SCRIPTS.JS >
+     ============================ */
+
+const inputPesquisa = document.getElementById('pokemonSearch');
 const msgNaoEncontrado = document.getElementById('msg-nao-encontrado');
 
 function filtrarPokemons() {
@@ -12,7 +17,7 @@ function filtrarPokemons() {
     let algumVisivel = false;
 
     itens.forEach(item => {
-        const nome = item.getAttribute('data-nome');
+        const nome = item.getAttribute('data-nome').toLowerCase();
 
         if (nome.startsWith(termo)) {
             item.style.display = '';
@@ -22,7 +27,9 @@ function filtrarPokemons() {
         }
     });
 
-    msgNaoEncontrado.style.display = algumVisivel ? 'none' : 'block';
+    if (msgNaoEncontrado) {
+        msgNaoEncontrado.style.display = algumVisivel ? 'none' : 'block';
+    }
 }
 
 if (inputPesquisa) {

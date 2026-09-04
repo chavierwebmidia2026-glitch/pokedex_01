@@ -7,49 +7,190 @@
 {% load static %}
 
 {% block content %}
-<div class="container py-5">
 
-    <h2 class="text-center text-warning mb-2">Pokémon</h2>
-    <p class="text-center text-light mb-4">Confira os primeiros da nossa lista</p>
+<div class="container py-4">
 
-    <!-- Barra de pesquisa em tempo real -->
-    <div class="row justify-content-center mb-5">
-        <div class="col-12 col-md-6">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text bg-dark border-danger text-warning">
-                        <i class="fas fa-search"></i>
+    <!-- TÍTULO -->
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold text-warning">
+            🔴 Pokédex
+        </h1>
+
+        <p class="text-light">
+            Explore os Pokémon e veja seus detalhes.
+        </p>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="input-group input-group-lg shadow-sm">
+                    <span class="input-group-text">
+                        🔍
                     </span>
+                    <input type="text" id="pokemonSearch" class="form-control" placeholder="Pesquisar Pokémon..."
+                        autocomplete="off">
                 </div>
-                <input type="text" id="pesquisa-pokemon" class="form-control" placeholder="Pesquisar Pokémon...">
             </div>
         </div>
+
     </div>
 
     <p id="msg-nao-encontrado" class="text-center text-light" style="display: none;">
-        <i class="fas fa-exclamation-circle text-danger mr-2"></i>Pokémon não encontrado.
+        Nenhum Pokémon encontrado.
     </p>
 
-    <div class="row" id="pokemon-container">
+    <!-- ============================
+         CARDS
+         ============================ -->
+
+    <div class="row g-4">
+
         {% for pokemon in pokemons %}
-        <div class="col-6 col-md-4 col-lg-3 mb-4 pokemon-item" data-nome="{{ pokemon.nome }}">
-            <div class="card card-pokemon h-100 text-center">
-                <div class="card-img-wrapper">
-                    <img src="{{ pokemon.imagem }}" class="card-img-top" alt="{{ pokemon.nome }}">
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 pokemon-item" data-nome="{{ pokemon.nome }}">
+
+            <div class="card h-100 border-0 shadow-sm text-center">
+
+                <!-- IMAGEM -->
+                <div class="p-3">
+                    <img src="{{ pokemon.imagem }}" class="img-fluid" style="height: 180px; object-fit: contain;"
+                        alt="{{ pokemon.nome }}">
                 </div>
+
+                <!-- CONTEÚDO -->
                 <div class="card-body">
-                    <span class="pokemon-number">#{{ pokemon.id }}</span>
-                    <h5 class="card-title text-capitalize">{{ pokemon.nome }}</h5>
-                    <div class="d-flex justify-content-center flex-wrap">
+
+                    <small class="text-muted fw-semibold">
+                        #{{ pokemon.id }}
+                    </small>
+
+                    <h4 class="fw-bold text-capitalize mt-1">
+                        {{ pokemon.nome }}
+                    </h4>
+
+                    <!-- TIPOS -->
+                    <div class="mb-3">
                         {% for tipo in pokemon.tipos %}
-                        <span class="badge badge-tipo tipo-{{ tipo }}">{{ tipo }}</span>
+                        <span class="badge bg-primary text-capitalize me-1">
+                            {{ tipo }}
+                        </span>
                         {% endfor %}
                     </div>
+
+                    <!-- BOTÃO -->
+                    <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal"
+                        data-bs-target="#pokemonModal{{ pokemon.id }}">
+                        Ver detalhes
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ============================
+             MODAL
+             ============================ -->
+
+        <div class="modal fade" id="pokemonModal{{ pokemon.id }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow-lg">
+
+                    <!-- CABEÇALHO -->
+                    <div class="modal-header">
+                        <h4 class="modal-title fw-bold text-capitalize">
+                            #{{ pokemon.id }} {{ pokemon.nome }}
+                        </h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+
+                    <!-- CORPO -->
+                    <div class="modal-body">
+                        <div class="row g-4 align-items-center">
+
+                            <!-- IMAGEM -->
+                            <div class="col-md-5 text-center">
+                                <img src="{{ pokemon.imagem }}" class="img-fluid"
+                                    style="max-height: 280px; object-fit: contain;" alt="{{ pokemon.nome }}">
+                            </div>
+
+                            <!-- DADOS -->
+                            <div class="col-md-7">
+
+                                <h5 class="fw-bold mb-3">📋 Informações</h5>
+
+                                <div class="row g-2 mb-4">
+                                    <div class="col-6">
+                                        <div class="bg-light rounded p-3">
+                                            <small class="text-muted">ID</small>
+                                            <div class="fw-bold">#{{ pokemon.id }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="bg-light rounded p-3">
+                                            <small class="text-muted">Altura</small>
+                                            <div class="fw-bold">{{ pokemon.altura }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="bg-light rounded p-3">
+                                            <small class="text-muted">Peso</small>
+                                            <div class="fw-bold">{{ pokemon.peso }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="bg-light rounded p-3">
+                                            <small class="text-muted">Tipo</small>
+                                            <div>
+                                                {% for tipo in pokemon.tipos %}
+                                                <span class="badge bg-primary text-capitalize">{{ tipo }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5 class="fw-bold mb-3">⚡ Habilidades</h5>
+                                <div class="mb-4">
+                                    {% for habilidade in pokemon.habilidades %}
+                                    <span class="badge bg-secondary text-capitalize me-1 mb-1">{{ habilidade }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <h5 class="fw-bold mb-3">💪 Status</h5>
+                                {% for status in pokemon.status %}
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-capitalize">{{ status.nome }}</span>
+                                        <strong>{{ status.valor }}</strong>
+                                    </div>
+                                    <div class="progress" role="progressbar" aria-valuenow="{{ status.valor }}"
+                                        aria-valuemin="0" aria-valuemax="150">
+                                        <div class="progress-bar" style="width: {{ status.valor }}%;"></div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RODAPÉ -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">
+                            Fechar
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
+
         {% endfor %}
+
     </div>
 
 </div>
+
 {% endblock %}

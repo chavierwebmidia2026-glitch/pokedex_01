@@ -12,17 +12,20 @@
     <div class="container">
 
         <div class="hero-images d-flex justify-content-center align-items-end flex-wrap mb-4">
-            <img src="{% static 'img/8f0c42e4b5ffd76f3863950582070c1c-removebg-preview.png' %}" alt="Pokédex" class="hero-img hero-img-1">
+            <img src="{% static 'img/8f0c42e4b5ffd76f3863950582070c1c-removebg-preview.png' %}" alt="Pokédex"
+                class="hero-img hero-img-1">
             <img src="{% static 'img/images.png' %}" alt="Pokédex" class="hero-img hero-img-2">
         </div>
 
-        <h1 class="display-4 text-warning font-weight-bold hero-title">Bem-vindo à Pokédex</h1>
+        <div class="container px-4" style="max-width: 700px;">
+            <h1 class="display-4 text-warning font-weight-bold hero-title">Bem-vindo à Pokédex</h1>
 
-        <p class="lead text-light hero-subtitle">
-            Explore, descubra e conheça todos os Pokémon do universo — dados em tempo real, direto da fonte.
-        </p>
+            <p class="lead text-light hero-subtitle">
+                Explore, descubra e conheça todos os Pokémon do universo — dados em tempo real, direto da fonte.
+            </p>
 
-        <a href="{% url 'pokemons' %}" class="btn btn-warning btn-lg mt-3 hero-btn">Ver Pokémons</a>
+            <a href="{% url 'pokemons' %}" class="btn btn-warning btn-lg mt-3 hero-btn">Ver Pokémons</a>
+        </div>
 
     </div>
 </section>

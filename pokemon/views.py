@@ -1,7 +1,3 @@
-''' ============================
-     < CHWM := CHAVIERWEBMÍDIA >
-     < VIEWS := PÁGINA VIEWS.PY >
-     ============================ '''
 import requests
 from django.shortcuts import render
 
@@ -24,11 +20,20 @@ def pokemons(request):
     for item in data['results']:
         detalhes = requests.get(item['url']).json()
 
+        status_formatado = [
+            {'nome': s['stat']['name'], 'valor': s['base_stat']}
+            for s in detalhes['stats']
+        ]
+
         lista_pokemons.append({
             'id': detalhes['id'],
             'nome': detalhes['name'],
             'imagem': detalhes['sprites']['other']['official-artwork']['front_default'],
             'tipos': [t['type']['name'] for t in detalhes['types']],
+            'altura': f"{detalhes['height'] / 10} m",
+            'peso': f"{detalhes['weight'] / 10} kg",
+            'habilidades': [a['ability']['name'] for a in detalhes['abilities']],
+            'status': status_formatado,
         })
 
     context = {

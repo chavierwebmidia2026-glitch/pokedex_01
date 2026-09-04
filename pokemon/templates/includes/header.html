@@ -1,38 +1,43 @@
-
 <!-- =======================================
      < CHWM := CHAVIERWEBMÍDIA >
      < HEADER INCLUDE := PÁGINA HEADER.HTML >
-     ==================================== -->
+     ======================================= -->
 
 {% load static %}
-<header class=" border-bottom border-widht border-white">
-    <nav class="navbar-nav navbar-expand-md navbar-dark container py-3">
 
-        <!-- Logo -->
+
+<header class="fixed-top border-bottom border-white">
+    <nav class="navbar navbar-expand-md navbar-dark container py-2 py-md-3">
+
+        <!-- LOGO -->
         <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-            <img src="{% static 'img/pokemon-1635610_128ikk0-removebg-preview.png' %}" alt="Pokédex logo" class="mr-2 logo-img" style="height: 50px;">
-            <span class="h4 mb-0 text-warning font-weight-bold">Pokédex</span>
+            <img src="{% static 'img/pokemon-1635610_128ikk0-removebg-preview.png' %}"
+                alt="Pokédex logo" class="me-2" style="height: 40px;">
+            <span class="h5 h4-md mb-0 text-warning fw-bold">Pokédex</span>
         </a>
 
-        <!-- Botão hambúrguer (mobile) -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+        <!-- BOTÃO MOBILE -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu" aria-controls="navbarMenu"
+            aria-expanded="false" aria-label="Abrir menu">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menu -->
+        <!-- MENU -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav text-center gap-md-2 pt-3 pt-md-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Início</a>
+                    <a class="nav-link px-3" href="{% url 'home' %}">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'pokemons' %}">Pokémons</a>
+                    <a class="nav-link px-3" href="{% url 'pokemons' %}">Pokémons</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+                    <a class="nav-link px-3" href="{% url 'sobre' %}">Sobre</a>
                 </li>
             </ul>
         </div>
 
     </nav>
+
 </header>

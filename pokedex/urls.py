@@ -1,3 +1,10 @@
+
+''' ====================================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < URLS PRINCIPAL := PÁGINA URLS.PY >
+     =================================== '''
+
+
 """
 URL configuration for pokedex project.
 

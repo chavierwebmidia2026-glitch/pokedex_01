@@ -1,3 +1,11 @@
+
+''' ============================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < SETTINGS := PÁGINA SETTINGS.PY >
+     ============================ '''
+
+
+
 """
 Django settings for pokedex project.
 

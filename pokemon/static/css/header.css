@@ -1,0 +1,8 @@
+/* ====================================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < CSS  := PÁGINA STYLE HEADER.CSS >
+     ================================ */
+
+.border-danger {
+    border-color: var(--cor-vermelho-vivo) !important;
+}

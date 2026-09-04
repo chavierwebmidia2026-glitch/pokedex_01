@@ -1,0 +1,46 @@
+<!-- ============================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < HTML := PÁGINA BASE.HTML >
+     ============================ -->
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- CSS próprio: style.css primeiro (declara as variáveis :root) -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    {% include 'includes/header.html' %}
+
+    <main class="flex-fill">
+        {% block content %}
+        {% endblock %}
+       
+    </main>
+
+    {% include 'includes/footer.html' %}
+
+    <!-- JavaScript -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+</body>
+
+</html>

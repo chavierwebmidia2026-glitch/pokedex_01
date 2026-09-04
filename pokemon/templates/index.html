@@ -1,29 +1,36 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+<!-- ============================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < HTML := PÁGINA INDEX.HTML >
+     ============================ -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
-    <!--link bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!--link css-->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% extends 'base.html' %}
 
-</head>
+{% block content %}
+<div class="container py-5">
 
+    <h1 class="text-center mb-2">Pokédex</h1>
+    <p class="text-center text-light mb-4">Explore o mundo Pokémon em tempo real</p>
 
-<body class="d-flex 
-flex-column justify-content-center align-items-center">
+    <!-- Barra de busca -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-12 col-md-6">
+            <div class="input-group">
+                <input type="text" id="pokemon-search" class="form-control"
+                    placeholder="Buscar Pokémon (ex: pikachu)">
+                <div class="input-group-append">
+                    <button class="btn btn-danger" id="btn-search">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h1>Welcome to the Pokedex</h1>
-    <p>This is a simple Django application for displaying Pokémon information.</p>
-</body>
+    <!-- Onde os cards vão aparecer -->
+    <div id="pokemon-container" class="row"></div>
 
-<!-- Meu JavaScript -->
-<script src="js/scripts.js"></script>
+    <!-- Botão carregar mais -->
+    <div class="text-center mt-4">
+        <button class="btn btn-outline-warning" id="btn-load-more">Carregar mais</button>
+    </div>
 
-
-</html>
+</div>
+{% endblock %}

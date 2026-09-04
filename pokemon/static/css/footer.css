@@ -1,0 +1,25 @@
+/* ====================================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < CSS  := PÁGINA STYLE FOOTER.CSS >
+     ================================ */
+
+
+
+.footer-premium {
+    background-color: var(--cor-preto);
+    border-top: 2px solid var(--cor-vermelho-vivo);
+}
+
+.footer-bottom {
+    background-color: var(--cor-vinho);
+}
+
+.footer-premium a {
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.footer-premium a:hover {
+    opacity: 1;
+    color: var(--cor-vermelho-vivo) !important;
+}

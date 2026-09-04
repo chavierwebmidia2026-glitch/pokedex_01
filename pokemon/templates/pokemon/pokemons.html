@@ -98,15 +98,15 @@
                 <div class="modal-content border-0 shadow-lg">
 
                     <!-- CABEÇALHO -->
-                    <div class="modal-header">
-                        <h4 class="modal-title fw-bold text-capitalize">
+                    <div class="modal-header bg-dark text-light">
+                        <h4 class="modal-title fw-bold text-warning text-capitalize">
                             #{{ pokemon.id }} {{ pokemon.nome }}
                         </h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
 
                     <!-- CORPO -->
-                    <div class="modal-body">
+                    <div class="modal-body bg-warning text-white ">
                         <div class="row g-4 align-items-center">
 
                             <!-- IMAGEM -->
@@ -123,7 +123,7 @@
                                 <div class="row g-2 mb-4">
                                     <div class="col-6">
                                         <div class="bg-light rounded p-3">
-                                            <small class="text-muted">ID</small>
+                                            <small class="text-warning">ID</small>
                                             <div class="fw-bold">#{{ pokemon.id }}</div>
                                         </div>
                                     </div>
@@ -177,8 +177,8 @@
                     </div>
 
                     <!-- RODAPÉ -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">
+                    <div class="modal-footer bg-dark text-light d-flex justify-content-center">
+                        <button type="button" class="btn btn-success rounded-pill px-4" data-bs-dismiss="modal">
                             Fechar
                         </button>
                     </div>
